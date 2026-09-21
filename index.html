@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content="Estimate the probability of concurrent sepsis in patients with SFTS." />
+    <title>SFTS-Sepsis Risk Prediction Calculator</title>
+    <link rel="stylesheet" href="./styles.css" />
+    <script src="./app.js?v=20260921" defer></script>
+  </head>
+  <body>
+    <main class="app-shell" id="top">
+      <header>
+        <h1>SFTS-Sepsis Risk Prediction Calculator</h1>
+      </header>
+
+      <form class="calculator" id="calculator" novalidate>
+        <div class="field-grid" id="field-grid"></div>
+
+        <div class="actions">
+          <button class="calculate" id="calculate" type="submit" disabled>Calculation</button>
+          <button class="clear" id="clear" type="button" disabled>Clear</button>
+        </div>
+        <p class="error" id="error" role="alert" hidden>One or more values are outside the accepted range.</p>
+
+        <section class="result" id="result" aria-live="polite" hidden>
+          <div>
+            <span>Predicted probability of sepsis:</span>
+            <strong id="probability"></strong>
+          </div>
+        </section>
+
+        <p class="notice">
+          <span>The six values entered here are sent over HTTPS to the private prediction service hosted on Render to calculate the result. This application does not intentionally store the submitted values. Do not enter names, identification numbers, or other direct patient identifiers.</span>
+          <span>For research use only. This estimate is not a clinical diagnosis.</span>
+        </p>
+      </form>
+
+      <section class="tutorial" aria-labelledby="tutorial-title">
+        <h2 id="tutorial-title">How to use</h2>
+        <ol>
+          <li><b>1</b><div><strong>Enter the six values</strong><p>Use admission data and the units shown beside each field.</p></div></li>
+          <li><b>2</b><div><strong>Calculation</strong><p>Select Calculation after all fields are complete.</p></div></li>
+          <li><b>3</b><div><strong>Interpret the result</strong><p>Review the probability with the patient’s full clinical presentation.</p></div></li>
+        </ol>
+      </section>
+    </main>
+  </body>
+</html>
